@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI User Story Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🤖 AI User Story Generator</h1>
+      <p class="subtitle">Describe a feature or requirement and let AI craft agile user stories for you.</p>
+    </header>
+
+    <main>
+      <form id="story-form" novalidate>
+        <div class="form-group">
+          <label for="description">Feature / Requirement Description</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="5"
+            placeholder="e.g. Users should be able to reset their password via email."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group form-row">
+          <label for="num-stories">Number of Stories</label>
+          <input
+            type="number"
+            id="num-stories"
+            name="num_stories"
+            value="3"
+            min="1"
+            max="10"
+          />
+        </div>
+
+        <button type="submit" id="generate-btn">
+          <span id="btn-text">Generate User Stories</span>
+          <span id="btn-spinner" class="spinner hidden"></span>
+        </button>
+      </form>
+
+      <section id="results" class="hidden">
+        <h2>Generated User Stories</h2>
+        <div id="stories-output"></div>
+        <button id="copy-btn" class="secondary-btn">📋 Copy to Clipboard</button>
+      </section>
+
+      <section id="error-section" class="hidden">
+        <p id="error-message" class="error-text"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
