@@ -1,0 +1,197 @@
+AI User Story Generator – Team Introduction Brief
+Welcome
+Welcome to the AI User Story Generator experiment. This brief provides everything you need to get started on this focused development spike.
+We aim to explore how AI-assisted tooling can help product and delivery teams efficiently transform unstructured business requirements into high-quality, structured Jira-ready user stories, while maintaining consistency, traceability, and control.
+Project Overview
+Background
+In modern software delivery environments, product managers and business analysts frequently work with unstructured inputs such as emails, meeting notes, or business requirement documents. Translating these into well-formed Jira user stories is:
+● Time-consuming
+● Inconsistent across teams
+● Dependent on individual experience
+This results in variability in story quality, unclear acceptance criteria, and inefficiencies during sprint planning and execution.
+The Opportunity
+This experiment explores whether an internal AI-assisted tool can:
+● Convert unstructured requirements into standardized user stories
+● Improve consistency in story format and quality 
+● Accelerate backlog creation
+● Maintain traceability between source input and generated stories
+What We’re Building
+An internal AI User Story Generator that can:
+● Ingest unstructured requirement inputs (text, documents)
+● Generate structured Jira-ready user stories
+● Produce acceptance criteria using standard formats (e.g., Given/When/Then)
+● Suggest metadata such as priority, labels, and story points
+● Maintain traceability between input and generated output
+● Integrate with Jira to create tickets directly
+● Support a lightweight review and approval workflow
+Technical Context
+Proposed Technology Stack
+● Frontend: React and/or Next.js
+● Backend / Data: Supabase (Postgres, Auth, Storage)
+● Workflow Orchestration: n8n
+● LLM Access: Approved tooling (e.g., Requesty)
+● Integration: Jira REST API
+● UI Components: shadcn/ui
+Sample Use Cases
+The tool will support common delivery workflows, including:
+1. Converting business requirements into Jira user stories
+2. Generating acceptance criteria for incomplete stories
+3. Standardizing backlog creation across teams
+4. Preparing draft stories for sprint planning
+5. Accelerating documentation of features from meeting notes
+Experiment Scope & Timeline
+Duration
+This experiment is designed as a short, focused development spike and can be completed incrementally over several weeks.
+What This Is
+● A proof of concept for AI-assisted backlog generation
+● A learning exercise to test structured content generation workflows
+● An exploration of guardrails, traceability, and usability
+What This Is Not
+● A production-ready Jira replacement
+● A fully automated backlog management system
+● A substitute for product owner decision-making
+Success Criteria
+At the conclusion of the experiment, we aim to understand:
+1. Technical Feasibility
+Can React, Supabase, n8n, Jira APIs, and LLM tooling be effectively integrated?
+2. Quality of Output
+Are generated user stories:
+● Clear and actionable?
+● Consistent in format?
+● Faithful to input requirements?
+3. Usability
+Does the tool feel like a practical assistant for product teams?
+4. Safety and Guardrails
+Does the system avoid:
+● Hallucinated requirements
+● Unsupported assumptions
+● Inconsistent or vague acceptance criteria
+Deliverables
+1. Working Prototype
+A functional prototype demonstrating:
+● Requirement input interface
+● User story generation
+● Acceptance criteria generation
+● Metadata suggestions (priority, story points, labels)
+● Jira ticket creation
+● Basic review/edit workflow
+2. Knowledge Sharing
+A walkthrough covering:
+● What worked well
+● Challenges encountered
+● Prompt design strategies
+● Integration learnings (especially Jira API)
+3. Findings Documentation
+Lightweight documentation capturing:
+● Technical approach
+● Limitations of AI-generated stories
+● Accuracy and consistency observations
+● Recommendations for improvement
+4. Technical Assets
+● GitHub repository with setup instructions
+● Sample mock requirement data
+● Prompt templates and configurations
+● Screenshots or demo recording
+Team & Communication
+Communication Approach
+● Direct and informal communication encouraged
+● Raise blockers early
+● No formal reporting required
+● Optional syncs as needed
+Access & Data
+System Access
+No real or sensitive business data should be used. Use only:
+● Mock requirements
+● Synthetic product scenarios
+● Publicly available templates
+Data Approach
+Sample data may include:
+● Mock business requirements
+● Example feature descriptions
+● Synthetic Jira backlogs
+Your Setup
+You are expected to provision:
+● LLM access via approved tooling
+● Supabase instance
+● n8n instance
+● Jira sandbox or test environment
+Getting Started
+Immediate Next Steps
+1. Review this brief
+2. Set up development environment
+3. Create mock requirement datasets
+4. Configure Jira sandbox
+5. Begin prototyping generation workflows
+Questions to Consider
+● What defines a “good” user story?
+● How do we enforce structure without limiting flexibility?
+● How do we ensure traceability to source input?
+● What level of AI autonomy is acceptable?
+● How do we prevent hallucinated requirements?
+Core Functional Design
+Input Layer
+● Free text input
+● Document upload (optional)
+● Structured form (optional fields)
+Processing Layer (n8n + LLM) Steps:
+1. Pre-process input 2. Extract key entities (actor, goal, value) 3. Generate: ○ User story ○ Acceptance criteria 4. Add metadata suggestions 5. Validate output against guardrails
+Output Layer
+● Editable user story view
+● Side-by-side comparison (input vs output)
+● Export options:
+○ Jira ticket creation
+○ JSON / CSV
+Guardrails & Safety Design
+● Only use information explicitly present in input
+● Flag missing information instead of guessing
+● Enforce structured templates:
+○ “As a… I want… So that…”
+● Acceptance criteria must be:
+○ Testable
+○ Specific
+● Provide confidence indicators for generated content
+Jira Integration Design
+● Use Jira REST API to:
+○ Create issues
+○ Assign issue types (Story, Task)
+○ Add labels and metadata
+● Map generated fields to Jira schema:
+○ Summary → Story title
+○ Description → Full story + criteria
+● Support dry-run mode before ticket creation
+Integration Vision (Future State)
+If successful, this tool could evolve into:
+● A backlog management assistant
+● Sprint planning support tool
+● AI-powered delivery copilot
+● Integration with other tools (Confluence, Slack)
+Support & Resources
+Available to You
+● Public templates for user stories
+● Jira API documentation
+● Flexibility in design decisions
+● Freedom to experiment
+What We Need From You
+● Honest evaluation of results
+● Clear documentation of learnings
+● Experimentation mindset
+● Focus on usability and practicality
+Developer Guidance (IMPORTANT)
+When using AI-assisted coding tools (e.g., Copilot, Claude, GPT):
+● Validate all generated code before use
+● Ensure code is:
+○ Correct
+○ Secure
+○ Maintainable
+● Avoid overly verbose or unnecessarily complex implementations
+● Prefer simple, modular, and readable code
+● Review all API integrations carefully (especially Jira and Supabase)
+AI-generated code should be treated as a starting point, not a final solution.
+Closing Thoughts
+This is an experiment focused on learning and validation. The goal is not perfection, but insight into how AI can responsibly support project delivery workflows.
+Whether the outcome confirms feasibility or reveals limitations, both are valuable in guiding future development.
+
+
+
+
+
